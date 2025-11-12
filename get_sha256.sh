@@ -27,3 +27,4 @@ else
     echo "Keystore de debug não encontrado em: $KEYSTORE_PATH"
 fi
 
+

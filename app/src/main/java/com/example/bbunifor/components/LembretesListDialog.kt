@@ -52,17 +52,21 @@ fun LembretesListDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Lista de lembretes
+                // Lista de lembretes com scroll
                 if (isLoading) {
                     Box(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ) {
                         CircularProgressIndicator()
                     }
                 } else if (lembretes.isEmpty()) {
                     Box(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ) {
                         Column(
@@ -82,6 +86,9 @@ fun LembretesListDialog(
                     }
                 } else {
                     LazyColumn(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth(),
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         items(lembretes) { lembrete ->
@@ -170,4 +177,5 @@ fun LembreteCard(
         }
     }
 }
+
 
