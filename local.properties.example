@@ -1,0 +1,7 @@
+# Este é um arquivo de exemplo. Copie para local.properties e adicione suas chaves reais.
+# O arquivo local.properties já está no .gitignore e não será commitado.
+
+# Google Books API Key
+# Obtenha sua chave em: https://console.cloud.google.com/apis/credentials
+GOOGLE_BOOKS_API_KEY=sua_chave_aqui
+

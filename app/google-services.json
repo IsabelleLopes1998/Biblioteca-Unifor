@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "489305502311",
+    "project_id": "biblioteca-unifor",
+    "storage_bucket": "biblioteca-unifor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489305502311:android:c86c974086a78b948f9ac2",
+        "android_client_info": {
+          "package_name": "br.unifor.yetanothertodo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd2Lf3BVy9FlUqNbPV3Hlp0atVtanEdTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489305502311:android:ccce422b7c5d00278f9ac2",
+        "android_client_info": {
+          "package_name": "com.example.bbunifor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd2Lf3BVy9FlUqNbPV3Hlp0atVtanEdTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
