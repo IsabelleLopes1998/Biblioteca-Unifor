@@ -6,7 +6,10 @@ data class Register(
     val email: String,
     val matricula: String,
     val password: String,
+    val confirmPassword: String,
     val isCreated: Boolean,
     val error: Boolean,
-    val errorMessage: String
+    val errorMessage: String,
+    val errorMessagePassword: String
+
 )

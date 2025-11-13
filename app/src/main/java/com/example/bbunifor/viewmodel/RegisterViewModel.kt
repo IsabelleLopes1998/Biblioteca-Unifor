@@ -25,9 +25,11 @@ class RegisterViewModel: ViewModel() {
             email = "",
             password = "",
             matricula = "",
+            confirmPassword = "",
             isCreated = false,
             error = false,
-            errorMessage = ""
+            errorMessage = "",
+            errorMessagePassword = ""
         )
     )
     val registerState = _registerState.asStateFlow()
@@ -48,6 +50,10 @@ class RegisterViewModel: ViewModel() {
         this._registerState.update { it.copy(password = password) }
     }
 
+    fun updateConfirmPassword(confirmPassword: String){
+        this._registerState.update { it.copy(confirmPassword = confirmPassword) }
+    }
+
     fun updateMatricula(matricula: String){
         this._registerState.update { it.copy(matricula = matricula) }
     }
@@ -58,8 +64,40 @@ class RegisterViewModel: ViewModel() {
         val phone = this._registerState.value.phone
         val email = this._registerState.value.email
         val password = this._registerState.value.password
+        val confirmPassword = this._registerState.value.confirmPassword
         val matricula = this._registerState.value.matricula
 
+        // Limpar erros anteriores
+        this._registerState.update {
+            it.copy(
+                error = false,
+                errorMessage = "",
+                errorMessagePassword = ""
+            )
+        }
+
+        // Validar se as senhas coincidem
+        if(password != confirmPassword){
+            Log.e("RegisterViewModel", "❌ As senhas não coincidem")
+            this._registerState.update {
+                it.copy(
+                    error = true,
+                    errorMessagePassword = "As senhas não coincidem"
+                )
+            }
+            return // Impede o registro se as senhas não coincidirem
+        }
+
+        // Validar se os campos obrigatórios estão preenchidos
+        if(email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            this._registerState.update {
+                it.copy(
+                    error = true,
+                    errorMessage = "Preencha todos os campos obrigatórios"
+                )
+            }
+            return
+        }
 
         if(email.isNotEmpty() && password.isNotEmpty()) {
             Log.d("RegisterViewModel", "Iniciando registro para: $email")
