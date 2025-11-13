@@ -104,7 +104,7 @@ fun HomeScreen(innerPadding: PaddingValues,
                 },
                 modifier = Modifier
             ) {
-                Text("Sair")
+                Text("🚪 Sair")
             }
         }
 
