@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.bbunifor.components.TopBarNavigation
 import com.example.bbunifor.screen.HomeScreen
 import com.example.bbunifor.screen.LoginScreen
 import com.example.bbunifor.screen.RegisterScreen
@@ -28,17 +29,14 @@ class MainActivity : ComponentActivity() {
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            // Permissão concedida
         } else {
-            // Permissão negada
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        
-        // Solicita permissão de notificação se necessário (Android 13+)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -67,7 +65,16 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable<HomeScreen> {
-                        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                        Scaffold(
+                            modifier = Modifier.fillMaxSize(),
+                            topBar = {
+                                TopBarNavigation(
+                                    title = "Biblioteca Unifor",
+                                    navigateBack = { navController.popBackStack() },
+                                    showBackButton = false
+                                )
+                            }
+                        ) { innerPadding ->
                             HomeScreen(innerPadding, navController)
                         }
                     }

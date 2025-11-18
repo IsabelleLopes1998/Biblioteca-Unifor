@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.Composable
+import com.example.bbunifor.components.TopBarNavigation
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -49,6 +50,12 @@ fun RegisterScreen(
     val snackbarHostState  = remember { SnackbarHostState() }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        topBar = {
+            TopBarNavigation(
+                title = "Cadastro",
+                navigateBack = { navController.popBackStack() }
+            )
+        },
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)
         }
@@ -76,17 +83,6 @@ fun RegisterScreen(
                 .padding(innerPadding)
         ) {
 
-            Text(
-                text = "Formulário Cadastro",
-                textAlign = TextAlign.Center,
-                fontSize = 30.sp,
-                fontWeight = FontWeight.W600,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        horizontal = 16.dp,
-                        vertical = 16.dp)
-            )
 
             OutlinedTextField(
                 value = register.value.name,

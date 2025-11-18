@@ -78,7 +78,6 @@ fun HomeScreen(innerPadding: PaddingValues,
             .padding(innerPadding)
             .verticalScroll(rememberScrollState())
     ) {
-        // Botões superiores (Lembretes e Sair)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -151,7 +150,7 @@ fun HomeScreen(innerPadding: PaddingValues,
             }
         }
 
-        // Exibe erro se houver
+
         home.value.error?.let { error ->
             Text(
                 text = error,
@@ -163,7 +162,7 @@ fun HomeScreen(innerPadding: PaddingValues,
             )
         }
 
-        // Exibe loading centralizado
+
         if (home.value.isLoading) {
             Box(
                 modifier = Modifier
